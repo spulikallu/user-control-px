@@ -1,14 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
-import UserInput from './Components/UserInput';
-import Dailog from './Components/Dailog';
-import UserList from './Components/UserList';
+import logo from "./logo.svg";
+import "./App.css";
+import UserInput from "./Components/UserInput";
+import Dailog from "./Components/Dailog";
+import UserList from "./Components/UserList";
 
 function App() {
   return (
     <div className="App">
-    <UserInput/>
-    <UserList/>
+      <UserInput />
+      <UserList />
     </div>
   );
 }

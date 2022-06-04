@@ -3,17 +3,17 @@ import "./Dailog.css";
 function Dailog(props) {
   const onClose = () => {
     props.onCloseModelHandler();
+    console.log(props.message);
   };
 
   return (
     <div>
-      <button id="myBtn">Open Modal</button>
       <div id="myModal" className={`dailog ${props.open ? "open" : "close"}`}>
         <div className="dailog__content">
           <span className="dailog__icon" onClick={onClose}>
             &times;
           </span>
-          <p>Some text in the Modal</p>
+          <p>{props.message}</p>
         </div>
       </div>
     </div>
