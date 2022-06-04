@@ -7,7 +7,6 @@ import UserList from './Components/UserList';
 function App() {
   return (
     <div className="App">
-    <Dailog/>
     <UserInput/>
     <UserList/>
     </div>
