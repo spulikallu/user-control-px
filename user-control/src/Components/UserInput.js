@@ -4,49 +4,28 @@ import Button from "./Button";
 import { useState } from "react";
 import Dailog from "./Dailog";
 
-const UserInput = () => {
+const UserInput = (props) => {
   const [userName, setUserName] = useState("");
   const [userAge, setUserAge] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
   const onTextChangeHandler = (role, text) => {
-    if (role === "name") {
-      setUserName(text);
-    } else {
-      setUserAge(text);
-    }
+    props.onChange(role, text);
   };
 
   const onAddUserHandler = () => {
-    if (!userName || userName.trim() === "") {
-      setUserName("");
-      setErrorMessage("user name should not be empty");
-      setShowModal(true);
-    } else if (!userAge || userAge.trim() === "") {
-      setUserAge("");
-      setErrorMessage("age should not be empty");
-      setShowModal(true);
-    } else if (isNaN(userAge) || userAge < 0 || userAge > 100) {
-      setErrorMessage("Please enter valid error message between 0 and 100");
-      setShowModal(true);
-    } else {
-      setShowModal(false);
-    }
-  };
-
-  const onCloseModelHandler = () => {
-    setShowModal(false);
-  };
+    props.addUser();
+   };
 
   let formData = [
     {
       label: "UserName",
-      text: userName,
+      text: props.userName,
     },
     {
       label: "Age (Years)",
-      text: userAge,
+      text: props.userAge,
     },
   ];
 
@@ -65,11 +44,6 @@ const UserInput = () => {
         onTextChangeHandler={onTextChangeHandler}
       />
       <Button fromData={formData} onAddUserHandler={onAddUserHandler} />
-      <Dailog
-        open={showModal}
-        onCloseModelHandler={onCloseModelHandler}
-        message={errorMessage}
-      />
     </Card>
   );
 };
