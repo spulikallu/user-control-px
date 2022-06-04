@@ -1,0 +1,21 @@
+.card {
+  border: 5px solid lightgray;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 70%;
+  min-height: 10px;
+  padding: 10px;
+}
+
+.card.error {
+  background-color: antiquewhite;
+}
+
+.card.input {
+  background-color: aliceblue;
+}
+
+.card.list {
+  background-color: beige;
+}
